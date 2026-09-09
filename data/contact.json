@@ -1,0 +1,10 @@
+{
+  "email": "your-email@example.com",
+  "phone": "+94 7X XXX XXXX",
+  "location": "Colombo, Sri Lanka",
+  "socials": [
+    { "platform": "GitHub", "url": "https://github.com" },
+    { "platform": "LinkedIn", "url": "https://linkedin.com" },
+    { "platform": "HackerRank", "url": "https://hackerrank.com" }
+  ]
+}

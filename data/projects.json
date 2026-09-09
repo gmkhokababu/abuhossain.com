@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "title": "Full-Stack E-Commerce Platform",
+    "description": "A robust online marketplace solution featuring user authentication, product catalog, cart management, and payment gateway integration.",
+    "technologies": ["Java 17", "Spring Boot", "Angular", "MySQL", "Bootstrap"],
+    "githubUrl": "https://github.com",
+    "liveUrl": "https://example.com"
+  },
+  {
+    "id": 2,
+    "title": "Secure Authentication & Authorization System",
+    "description": "A backend microservice focusing on OAuth2, JWT implementation, BCrypt password encryption, and role-based access control.",
+    "technologies": ["Java 17", "Spring Security", "JWT", "MySQL"],
+    "githubUrl": "https://github.com"
+  },
+  {
+    "id": 3,
+    "title": "Personal Portfolio Website",
+    "description": "A modern, highly performant dark-themed portfolio built with modern web practices and dynamic JSON data binding.",
+    "technologies": ["Angular 22", "TypeScript", "Bootstrap 5", "CSS3"],
+    "githubUrl": "https://github.com",
+    "liveUrl": "https://example.com"
+  }
+]
