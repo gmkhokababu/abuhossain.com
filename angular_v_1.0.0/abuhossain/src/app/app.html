@@ -1,4 +1,11 @@
-<app-nav></app-nav>
-<main class="main-content">
+@if (!isCvPage) {
+  <app-nav></app-nav>
+}
+
+<main>
   <router-outlet></router-outlet>
 </main>
+
+@if (!isCvPage) {
+  <!-- <app-footer></app-footer> -->
+}

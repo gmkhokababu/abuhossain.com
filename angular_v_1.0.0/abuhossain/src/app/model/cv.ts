@@ -4,19 +4,22 @@ export interface PersonalInfo {
   email: string;
   phone: string;
   location: string;
+  linkedin?: string;
   summary: string;
 }
 
 export interface Skills {
   backend: string[];
   frontend: string[];
-  tools: string[];
+  database: string[];
+  languages: string[];
 }
 
 export interface Experience {
   role: string;
   company: string;
   period: string;
+  location?: string;
   description: string;
 }
 

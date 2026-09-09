@@ -16,7 +16,7 @@
       <div class="col-8">
         <section class="mb-4">
           <h5 class="text-uppercase fw-bold text-dark border-bottom pb-1 mb-2">Summary</h5>
-          <p class="text-secondary small">{{ cvData.personalInfo.summary }}</p>
+          <p class="text-secondary small mb-0">{{ cvData.personalInfo.summary }}</p>
         </section>
 
         <section class="mb-4">
@@ -47,8 +47,8 @@
             <span class="text-secondary small">{{ cvData.skills.frontend.join(', ') }}</span>
           </div>
           <div class="mb-2">
-            <strong class="text-dark small d-block">Tools:</strong>
-            <span class="text-secondary small">{{ cvData.skills.tools.join(', ') }}</span>
+            <strong class="text-dark small d-block">Database:</strong>
+            <span class="text-secondary small">{{ cvData.skills.database.join(', ') }}</span>
           </div>
         </section>
 
@@ -60,6 +60,11 @@
               <span class="text-muted small">{{ edu.institution }} | {{ edu.year }}</span>
             </div>
           }
+        </section>
+
+        <section>
+          <h5 class="text-uppercase fw-bold text-dark border-bottom pb-1 mb-2">Languages</h5>
+          <span class="text-secondary small">{{ cvData.skills.languages.join(', ') }}</span>
         </section>
       </div>
     </div>
