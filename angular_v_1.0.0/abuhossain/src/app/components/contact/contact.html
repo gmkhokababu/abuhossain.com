@@ -1,0 +1,68 @@
+<div class="container py-5">
+    <div class="mb-4 pb-3 border-bottom border-secondary">
+        <h1 class="text-light fw-bold mb-1">Get In Touch</h1>
+        <p class="text-secondary fs-5 mb-0">Feel free to reach out for collaborations or project inquiries.</p>
+    </div>
+
+    <div class="row g-4">
+        @if (contactInfo) {
+        <!-- Contact Info (Dynamic) -->
+        <div class="col-lg-5">
+            <div class="card bg-card border-secondary p-4 h-100">
+                <h3 class="text-purple fw-bold mb-4">Contact Information</h3>
+
+                <div class="mb-3">
+                    <p class="text-secondary mb-1">Location</p>
+                    <h5 class="text-light">{{ contactInfo.location }}</h5>
+                </div>
+
+                <div class="mb-3">
+                    <p class="text-secondary mb-1">Email</p>
+                    <h5 class="text-light">{{ contactInfo.email }}</h5>
+                </div>
+
+                <div class="mb-4">
+                    <p class="text-secondary mb-1">Phone</p>
+                    <h5 class="text-light">{{ contactInfo.phone }}</h5>
+                </div>
+
+                <div>
+                    <p class="text-secondary mb-2">Social Profiles</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        @for (social of contactInfo.socials; track social.platform) {
+                        <a [href]="social.url" target="_blank" class="btn btn-outline-secondary btn-sm fw-semibold">
+                            {{ social.platform }}
+                        </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+        <!-- Contact Form (Static Action) -->
+        <div class="col-lg-7">
+            <div class="card bg-card border-secondary p-4">
+                <h3 class="text-purple fw-bold mb-4">Send a Message</h3>
+                <form (ngSubmit)="onSubmit()">
+                    <div class="mb-3">
+                        <label class="form-label text-light">Your Name</label>
+                        <input type="text" class="form-control bg-dark text-light border-secondary"
+                            [(ngModel)]="formData.name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-light">Email Address</label>
+                        <input type="email" class="form-control bg-dark text-light border-secondary"
+                            [(ngModel)]="formData.email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-light">Message</label>
+                        <textarea class="form-control bg-dark text-light border-secondary" rows="4"
+                            [(ngModel)]="formData.message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-purple w-100 fw-semibold py-2">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

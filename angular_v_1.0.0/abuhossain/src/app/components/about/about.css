@@ -1,0 +1,43 @@
+/* Print CSS */
+@media print {
+  nav, footer, .d-print-none {
+    display: none !important;
+  }
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  .card {
+    border: none !important;
+    background: transparent !important;
+  }
+  .text-purple, .text-light, .text-secondary {
+    color: #000000 !important;
+  }
+}
+
+/* Mobile Responsive CSS */
+@media (max-width: 576px) {
+  /* Header Alignment & Font Adjustments */
+  .d-flex.justify-content-between.align-items-center.mb-4 {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem;
+  }
+
+  h1 {
+    font-size: 1.75rem !important;
+    line-height: 1.2;
+  }
+
+  .fs-5 {
+    font-size: 0.95rem !important;
+  }
+
+  /* Make Print Button Full Width or Compact on Mobile */
+  .d-print-none {
+    width: 100%;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+}

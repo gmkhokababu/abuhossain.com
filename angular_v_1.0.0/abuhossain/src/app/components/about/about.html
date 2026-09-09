@@ -1,0 +1,89 @@
+<div class="container py-5" *ngIf="cvData">
+  <!-- Header & Print Action -->
+  <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom border-secondary">
+    <div>
+      <h1 class="text-light fw-bold mb-1">{{ cvData.personalInfo.name }}</h1>
+      <p class="text-purple fs-5 mb-0">{{ cvData.personalInfo.title }}</p>
+    </div>
+    <button class="btn btn-purple px-4 fw-semibold d-print-none" (click)="printCV()">
+      Print / Save PDF
+    </button>
+  </div>
+
+  <!-- Summary -->
+  <section class="mb-5">
+    <h3 class="text-purple fw-bold mb-3">Professional Summary</h3>
+    <p class="text-secondary fs-5">{{ cvData.personalInfo.summary }}</p>
+    <p class="text-secondary"><strong>Location:</strong> {{ cvData.personalInfo.location }} | <strong>Email:</strong> {{ cvData.personalInfo.email }}</p>
+  </section>
+
+  <!-- Skills -->
+  <section class="mb-5">
+    <h3 class="text-purple fw-bold mb-3">Skills</h3>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="card bg-card border-secondary p-3 h-100">
+          <h5 class="text-light fw-bold">Backend</h5>
+          <div class="d-flex flex-wrap gap-1 mt-2">
+            @for (item of cvData.skills.backend; track item) {
+              <span class="badge bg-purple-subtle text-purple">{{ item }}</span>
+            }
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card bg-card border-secondary p-3 h-100">
+          <h5 class="text-light fw-bold">Frontend</h5>
+          <div class="d-flex flex-wrap gap-1 mt-2">
+            @for (item of cvData.skills.frontend; track item) {
+              <span class="badge bg-purple-subtle text-purple">{{ item }}</span>
+            }
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card bg-card border-secondary p-3 h-100">
+          <h5 class="text-light fw-bold">Tools</h5>
+          <div class="d-flex flex-wrap gap-1 mt-2">
+            @for (item of cvData.skills.tools; track item) {
+              <span class="badge bg-purple-subtle text-purple">{{ item }}</span>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="mb-5">
+    <h3 class="text-purple fw-bold mb-3">Experience</h3>
+    @for (exp of cvData.experience; track exp.role) {
+      <div class="card bg-card border-secondary p-4 mb-3">
+        <div class="d-flex justify-content-between align-items-start">
+          <div>
+            <h4 class="text-light fw-bold mb-1">{{ exp.role }}</h4>
+            <p class="text-purple mb-2">{{ exp.company }}</p>
+          </div>
+          <span class="badge bg-secondary">{{ exp.period }}</span>
+        </div>
+        <p class="text-secondary mb-0">{{ exp.description }}</p>
+      </div>
+    }
+  </section>
+
+  <!-- Education -->
+  <section class="mb-5">
+    <h3 class="text-purple fw-bold mb-3">Education</h3>
+    @for (edu of cvData.education; track edu.degree) {
+      <div class="card bg-card border-secondary p-4 mb-3">
+        <div class="d-flex justify-content-between align-items-start">
+          <div>
+            <h4 class="text-light fw-bold mb-1">{{ edu.degree }}</h4>
+            <p class="text-secondary mb-0">{{ edu.institution }}</p>
+          </div>
+          <span class="badge bg-secondary">{{ edu.year }}</span>
+        </div>
+      </div>
+    }
+  </section>
+</div>

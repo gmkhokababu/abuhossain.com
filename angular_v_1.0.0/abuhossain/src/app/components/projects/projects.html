@@ -1,0 +1,36 @@
+<div class="container py-5">
+  <div class="mb-4 pb-3 border-bottom border-secondary">
+    <h1 class="text-light fw-bold mb-1">Featured Projects</h1>
+    <p class="text-secondary fs-5 mb-0">A showcase of backend and full-stack software development projects I have built.</p>
+  </div>
+
+  <div class="row g-4">
+    @for (project of projects; track project.id) {
+      <div class="col-md-6 col-lg-4">
+        <div class="card bg-card border-secondary h-100 p-4 d-flex flex-column justify-content-between">
+          <div>
+            <h4 class="text-light fw-bold mb-2">{{ project.title }}</h4>
+            <p class="text-secondary mb-3">{{ project.description }}</p>
+            
+            <div class="d-flex flex-wrap gap-1 mb-3">
+              @for (tech of project.technologies; track tech) {
+                <span class="badge bg-purple-subtle text-purple me-1 mb-1">{{ tech }}</span>
+              }
+            </div>
+          </div>
+
+          <div class="d-flex gap-2 pt-3 border-top border-secondary">
+            <a [href]="project.githubUrl" target="_blank" class="btn btn-outline-secondary btn-sm fw-semibold">
+              GitHub
+            </a>
+            @if (project.liveUrl) {
+              <a [href]="project.liveUrl" target="_blank" class="btn btn-purple btn-sm fw-semibold">
+                Live Demo
+              </a>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

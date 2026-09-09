@@ -1,0 +1,57 @@
+{
+  "personalInfo": {
+    "name": "Abu Hossain Immam Shohag",
+    "title": "Java Developer - J2EE | Spring MVC & Boot | Angular 21",
+    "email": "gmabuhossain42@gmail.com",
+    "phone": "+8801516718442",
+    "location": "Colombo, Sri Lanka",
+    "linkedin": "www.linkedin.com/in/gm-abu-hossain",
+    "summary": "Passionate Junior Java Developer and aspiring Cybersecurity, OS & AI Engineer[cite: 7]. Experienced in building scalable applications with Java 17, Spring Boot, Hibernate, JPA, MySQL, and Angular 21[cite: 7]."
+  },
+  "skills": {
+    "backend": ["Java 17", "Spring Boot", "Spring MVC", "Hibernate", "Spring Data JPA", "JWT", "STS4"],
+    "frontend": ["Angular 21", "TypeScript", "HTML5", "CSS3", "Bootstrap 5", "Phaser.js"],
+    "database": ["MySQL", "Oracle DB"],
+    "languages": ["English (Professional)", "German (Elementary)", "Bengali (Native)", "Hindi (Speaking)", "Urdu (Speaking)"]
+  },
+  "experience": [
+    {
+      "role": "Executive Data Analyst",
+      "company": "Port City BPO",
+      "period": "Feb 2026 - Present",
+      "location": "Colombo",
+      "description": "Analyzing customer data and developing secured software using Java 17, Angular, Spring Boot, MySQL, and Phaser.js."
+    },
+    {
+      "role": "Executive",
+      "company": "Shohoz Software",
+      "period": "Nov 2024 - Apr 2025",
+      "location": "Dhaka, Bangladesh",
+      "description": "Software setup for clients based on requirements, software testing, and after-sale support."
+    },
+    {
+      "role": "Software Developer",
+      "company": "IsDB-BISEW",
+      "period": "Aug 2023 - Jul 2024",
+      "location": "Dhaka, Bangladesh",
+      "description": "Enterprise Systems Analysis & Design with JEE. Developed web and desktop applications using Java EE, Spring Boot, Angular, and Oracle DB."
+    }
+  ],
+  "education": [
+    {
+      "degree": "Diploma in Enterprise Systems Analysis & Design (JEE)",
+      "institution": "IsDB-BISEW",
+      "year": "2023 - 2024"
+    },
+    {
+      "degree": "Preliminary to Masters (Political Science)",
+      "institution": "National University Bangladesh",
+      "year": "2018 - 2022"
+    },
+    {
+      "degree": "Bachelor of Arts - BA",
+      "institution": "National University Bangladesh",
+      "year": "2016 - 2019"
+    }
+  ]
+}

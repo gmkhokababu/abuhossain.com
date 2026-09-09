@@ -1,0 +1,67 @@
+@if (cvData) {
+  <div class="cv-container p-4 p-md-5 bg-white text-dark">
+    <!-- Header -->
+    <div class="border-bottom border-2 border-dark pb-3 mb-4">
+      <h1 class="fw-bold mb-1 fs-2 text-dark">{{ cvData.personalInfo.name }}</h1>
+      <p class="text-primary fw-semibold mb-2 fs-6">{{ cvData.personalInfo.title }}</p>
+      <div class="d-flex flex-wrap gap-3 text-secondary small">
+        <span><strong>Email:</strong> {{ cvData.personalInfo.email }}</span>
+        <span><strong>Phone:</strong> {{ cvData.personalInfo.phone }}</span>
+        <span><strong>Location:</strong> {{ cvData.personalInfo.location }}</span>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Left Column -->
+      <div class="col-8">
+        <section class="mb-4">
+          <h5 class="text-uppercase fw-bold text-dark border-bottom pb-1 mb-2">Summary</h5>
+          <p class="text-secondary small">{{ cvData.personalInfo.summary }}</p>
+        </section>
+
+        <section class="mb-4">
+          <h5 class="text-uppercase fw-bold text-dark border-bottom pb-1 mb-3">Work Experience</h5>
+          @for (exp of cvData.experience; track exp.role) {
+            <div class="mb-3">
+              <div class="d-flex justify-content-between">
+                <strong class="text-dark">{{ exp.role }}</strong>
+                <span class="text-muted small">{{ exp.period }}</span>
+              </div>
+              <div class="text-primary small fw-semibold">{{ exp.company }}</div>
+              <p class="text-secondary small mb-0">{{ exp.description }}</p>
+            </div>
+          }
+        </section>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-4 border-start border-secondary-subtle">
+        <section class="mb-4">
+          <h5 class="text-uppercase fw-bold text-dark border-bottom pb-1 mb-2">Technical Skills</h5>
+          <div class="mb-2">
+            <strong class="text-dark small d-block">Backend:</strong>
+            <span class="text-secondary small">{{ cvData.skills.backend.join(', ') }}</span>
+          </div>
+          <div class="mb-2">
+            <strong class="text-dark small d-block">Frontend:</strong>
+            <span class="text-secondary small">{{ cvData.skills.frontend.join(', ') }}</span>
+          </div>
+          <div class="mb-2">
+            <strong class="text-dark small d-block">Tools:</strong>
+            <span class="text-secondary small">{{ cvData.skills.tools.join(', ') }}</span>
+          </div>
+        </section>
+
+        <section class="mb-4">
+          <h5 class="text-uppercase fw-bold text-dark border-bottom pb-1 mb-2">Education</h5>
+          @for (edu of cvData.education; track edu.degree) {
+            <div class="mb-2">
+              <strong class="text-dark small d-block">{{ edu.degree }}</strong>
+              <span class="text-muted small">{{ edu.institution }} | {{ edu.year }}</span>
+            </div>
+          }
+        </section>
+      </div>
+    </div>
+  </div>
+}

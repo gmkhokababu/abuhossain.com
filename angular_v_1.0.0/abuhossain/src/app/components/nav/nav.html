@@ -1,0 +1,46 @@
+<!-- <nav class="navbar navbar-expand-lg bg-dark navbar-dark border-bottom border-secondary py-1 px-4 sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center gap-2 py-0" href="#">
+      <img src="favicon.ico" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+      <span class="fs-6 fw-bold">Portfolio</span>
+    </a>
+    Mobile Hamburger Button
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    Nav Links
+    <div class="navbar-nav ms-auto gap-3">
+      <a class="nav-link py-1" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a class="nav-link py-1" routerLink="/about" routerLinkActive="active">About</a>
+      <a class="nav-link py-1" routerLink="/education" routerLinkActive="active">Education</a>
+      <a class="nav-link py-1" routerLink="/projects" routerLinkActive="active">Projects</a>
+      <a class="nav-link py-1" routerLink="/contact" routerLinkActive="active">Contact</a>
+    </div>
+  </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark border-bottom border-secondary py-2 px-4 sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center gap-2 py-0" routerLink="/" (click)="closeMenu()">
+      <img src="favicon.ico" alt="Logo" width="24" height="24">
+      <span class="fs-6 fw-bold">Portfolio</span>
+    </a>
+
+    <!-- Hamburger Toggle Button -->
+    <button class="navbar-toggler" type="button" (click)="toggleMenu()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible Menu -->
+    <div class="collapse navbar-collapse" [class.show]="!isMenuCollapsed">
+      <div class="navbar-nav ms-auto gap-2">
+        <a class="nav-link py-1" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Home</a>
+        <a class="nav-link py-1" routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
+        <a class="nav-link py-1" routerLink="/education" routerLinkActive="active" (click)="closeMenu()">Education</a>
+        <a class="nav-link py-1" routerLink="/projects" routerLinkActive="active" (click)="closeMenu()">Projects</a>
+        <a class="nav-link py-1" routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>

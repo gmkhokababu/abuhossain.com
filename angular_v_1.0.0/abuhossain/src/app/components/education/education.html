@@ -1,0 +1,30 @@
+<div class="container py-5">
+  <!-- Header -->
+  <div class="mb-4 pb-3 border-bottom border-secondary">
+    <h1 class="text-light fw-bold mb-1">Education</h1>
+    <p class="text-secondary fs-5 mb-0">My academic background and qualifications.</p>
+  </div>
+
+  <!-- Education Cards -->
+  <div class="row g-4">
+    @for (edu of educationList; track $index) {
+      <div class="col-12">
+        <div class="card bg-card border-secondary p-4">
+          <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
+            <div>
+              <h4 class="text-light fw-bold mb-1 fs-5 fs-sm-4">{{ edu.degree }}</h4>
+              <p class="text-purple mb-0 fw-semibold fs-6">{{ edu.institution }}</p>
+            </div>
+            <span class="badge bg-purple-subtle text-purple border border-purple align-self-start align-self-sm-center px-3 py-2">
+              {{ edu.year }}
+            </span>
+          </div>
+        </div>
+      </div>
+    } @empty {
+      <div class="col-12">
+        <p class="text-secondary fs-5">No education records found.</p>
+      </div>
+    }
+  </div>
+</div>

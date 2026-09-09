@@ -1,0 +1,33 @@
+export interface PersonalInfo {
+  name: string;
+  title: string;
+  email: string;
+  location: string;
+  summary: string;
+}
+
+export interface Skills {
+  backend: string[];
+  frontend: string[];
+  tools: string[];
+}
+
+export interface Experience {
+  role: string;
+  company: string;
+  period: string;
+  description: string;
+}
+
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  year: string;
+}
+
+export interface CVData {
+  personalInfo: PersonalInfo;
+  skills: Skills;
+  experience: Experience[];
+  education: EducationItem[];
+}

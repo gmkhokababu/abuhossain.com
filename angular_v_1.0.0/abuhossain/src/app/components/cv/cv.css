@@ -1,0 +1,12 @@
+.cv-container {
+  max-width: 850px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #212529 !important;
+}
+
+@media print {
+  body {
+    background-color: #ffffff !important;
+  }
+}

@@ -1,0 +1,30 @@
+
+/* Print styles */
+@media print {
+  nav, footer, .btn {
+    display: none !important;
+  }
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  .card {
+    border: none !important;
+    background: transparent !important;
+  }
+  .text-purple, .text-light, .text-secondary {
+    color: #000000 !important;
+  }
+}
+
+/* Mobile responsive styles */
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.75rem !important;
+  }
+
+  .badge {
+    font-size: 0.75rem !important;
+    padding: 0.35rem 0.65rem !important;
+  }
+}
