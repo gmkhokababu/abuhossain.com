@@ -3,17 +3,20 @@ import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Data } from '../../services/data';
 import { ContactInfo } from '../../model/contact';
+import { LoadingComponent } from '../loading/loading';
 
 @Component({
   imports: [
     CommonModule,
     FormsModule,
+    LoadingComponent,
   ],
   selector: 'app-contact',
   styleUrl: './contact.css',
   templateUrl: './contact.html',
 })
 export class ContactComponent implements OnInit {
+  isLoading = true;
   private dataService = inject(Data);
   private cdr = inject(ChangeDetectorRef);
 
@@ -25,8 +28,12 @@ export class ContactComponent implements OnInit {
       next: (data) => {
         this.contactInfo = data;
         this.cdr.detectChanges();
+        this.isLoading = false;
       },
-      error: (err) => console.error('Error fetching contact info:', err)
+      error: (err) => {
+        console.error('Error fetching contact info:', err);
+        this.isLoading = false;
+      }
     });
   }
 
