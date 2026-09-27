@@ -6,13 +6,14 @@
     "phone": "+8801516718442",
     "location": "Colombo, Sri Lanka",
     "linkedin": "www.linkedin.com/in/gm-abu-hossain",
-    "summary": "Passionate Junior Java Developer and aspiring Cybersecurity, OS & AI Engineer[cite: 7]. Experienced in building scalable applications with Java 17, Spring Boot, Hibernate, JPA, MySQL, and Angular 21[cite: 7]."
+    "summary": "Passionate Junior Java Developer and aspiring Cybersecurity, OS & AI Engineer. Experienced in building scalable applications with Java 17, Spring Boot, Hibernate, JPA, MySQL, and Angular 21."
   },
   "skills": {
     "backend": ["Java 17", "Spring Boot", "Spring MVC", "Hibernate", "Spring Data JPA", "JWT", "STS4"],
     "frontend": ["Angular 21", "TypeScript", "HTML5", "CSS3", "Bootstrap 5", "Phaser.js"],
     "database": ["MySQL", "Oracle DB"],
-    "languages": ["English (Professional)", "German (Elementary)", "Bengali (Native)", "Hindi (Speaking)", "Urdu (Speaking)"]
+    "languages": ["English (Professional)", "German (Elementary)", "Bengali (Native)", "Hindi (Speaking)", "Urdu (Speaking)"],
+    "tools":["VsCode", "postman", "Git"]
   },
   "experience": [
     {

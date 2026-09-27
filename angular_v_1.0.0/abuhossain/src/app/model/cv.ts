@@ -13,10 +13,10 @@ export interface Skills {
   frontend: string[];
   database: string[];
   languages: string[];
-  tools?: string[]; // optional হিসেবে যোগ করা হয়েছে
+  tools?: string[]; // optional
 }
 
-export interface Experience {
+export interface Experience { 
   role: string;
   company: string;
   period: string;
