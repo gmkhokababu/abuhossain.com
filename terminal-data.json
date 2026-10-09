@@ -1,0 +1,29 @@
+{
+  "welcome": "Welcome to my terminal portfolio! Type 'help' to see available commands.",
+  "about": "Hi, I'm Abu Hossain, a Java Backend Developer passionate about building robust web applications using Spring Boot, Angular, and MySQL.",
+  "skills": {
+    "Languages": ["Java", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3"],
+    "Frontend": ["Angular 17+", "Bootstrap", "RxJS", "HTML/CSS"],
+    "Backend": ["Spring Boot", "Spring Security", "OAuth2 / JWT", "REST APIs", "Maven"],
+    "Databases": ["MySQL"],
+    "Tools": ["Git", "GitHub", "STS4", "VS Code", "Postman", "Ubuntu"],
+    "Deployment": ["GitHub Pages", "Firebase"]
+  },
+  "projects": [
+    {
+      "name": "Custom Security Module",
+      "description": "Spring Boot security implementation with OAuth2 & JWT.",
+      "link": "https://github.com/gmkhokababu"
+    },
+    {
+      "name": "Angular Portfolio",
+      "description": "Interactive CLI/Terminal portfolio website.",
+      "link": "https://abuhossain.com"
+    }
+  ],
+  "contact": {
+    "email": "your-email@example.com",
+    "github": "https://github.com/gmkhokababu",
+    "website": "https://abuhossain.com"
+  }
+}
