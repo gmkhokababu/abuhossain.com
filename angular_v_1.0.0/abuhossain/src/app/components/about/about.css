@@ -1,4 +1,16 @@
 /* Print CSS */
+
+.text-blue{
+  color: #38BDF8;
+}
+
+.bg-purple-subtle{
+  background-color: #1E293B !important;
+}
+
+.text-levender{
+  color: #E9D5FF;
+}
 @media print {
   nav, footer, .d-print-none {
     display: none !important;

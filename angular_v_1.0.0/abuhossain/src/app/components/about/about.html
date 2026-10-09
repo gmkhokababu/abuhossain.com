@@ -6,7 +6,7 @@
       <p class="text-purple fs-5 mb-0">{{ cvData.personalInfo.title }}</p>
     </div>
     <button class="btn btn-purple px-4 fw-semibold d-print-none" (click)="printCV()">
-      Print / Save PDF
+      Print <i class="bi bi-printer"></i>
     </button>
   </div>
 
@@ -23,30 +23,30 @@
     <div class="row g-3">
       <div class="col-md-4">
         <div class="card bg-card border-secondary p-3 h-100">
-          <h5 class="text-light fw-bold">Backend</h5>
+          <h5 class="text-blue fw-bold">Backend</h5>
           <div class="d-flex flex-wrap gap-1 mt-2">
             @for (item of cvData.skills.backend; track item) {
-              <span class="badge bg-purple-subtle text-purple">{{ item }}</span>
+              <span class="badge bg-purple-subtle text-levender">{{ item }}</span>
             }
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card bg-card border-secondary p-3 h-100">
-          <h5 class="text-light fw-bold">Frontend</h5>
+          <h5 class="text-blue fw-bold">Frontend</h5>
           <div class="d-flex flex-wrap gap-1 mt-2">
             @for (item of cvData.skills.frontend; track item) {
-              <span class="badge bg-purple-subtle text-purple">{{ item }}</span>
+              <span class="badge bg-purple-subtle text-levender">{{ item }}</span>
             }
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card bg-card border-secondary p-3 h-100">
-          <h5 class="text-light fw-bold">Tools</h5>
+          <h5 class="text-blue fw-bold">Tools</h5>
           <div class="d-flex flex-wrap gap-1 mt-2">
             @for (item of cvData.skills.tools; track item) {
-              <span class="badge bg-purple-subtle text-purple">{{ item }}</span>
+              <span class="badge bg-purple-subtle text-levender">{{ item }}</span>
             }
           </div>
         </div>
