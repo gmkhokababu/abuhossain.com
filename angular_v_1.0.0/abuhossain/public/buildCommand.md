@@ -2,5 +2,10 @@
 
 ১. ng build --base-href "[https://gmkhokababu.github.io/abuhossain.com/](https://gmkhokababu.github.io/abuhossain.com/)"
 
+ng build --configuration production --base-href "/"
+
+
 
 ২. npx angular-cli-ghpages --dir=dist/abuhossain/browser
+
+npx angular-cli-ghpages --dir=dist/abuhossain/browser

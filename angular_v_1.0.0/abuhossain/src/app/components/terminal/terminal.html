@@ -1,0 +1,114 @@
+<div class="layout-wrapper">
+  <!-- Left Profile Sidebar -->
+  <aside class="profile-sidebar">
+    <div class="vertical-text">i use java btw</div>
+    <div class="profile-card">
+      <div class="image-wrapper">
+        <img src="https://github.com/gmkhokababu.png" alt="Abu Hossain" />
+      </div>
+      <h2>Abu Hossain</h2>
+      <p class="role">Java Backend Developer</p>
+    </div>
+    <div class="quote">[ 夢に向かって進め_ ]</div>
+  </aside>
+
+  <!-- Main Terminal Area -->
+  <main class="terminal-main">
+    <!-- Top Navigation Buttons -->
+    <nav class="quick-nav">
+      <button (click)="runCommand('help')">help</button>
+      <button (click)="runCommand('about')">about</button>
+      <button (click)="runCommand('projects')">projects</button>
+      <button (click)="runCommand('skills')">skills</button>
+      <button (click)="runCommand('contact')">contact</button>
+      <button (click)="runCommand('clear')">clear</button>
+    </nav>
+
+    <!-- Terminal Box -->
+    <div class="terminal-container">
+      <div class="terminal-header">
+        <div class="buttons">
+          <span class="btn close"></span>
+          <span class="btn minimize"></span>
+          <span class="btn maximize"></span>
+        </div>
+        <div class="title">abuhossain@ab:~</div>
+      </div>
+
+      <div class="terminal-body">
+        <div *ngFor="let item of history" class="history-item">
+          <div class="command-line" *ngIf="item.command !== 'welcome'">
+            <span class="prompt">abuhossain@ab:~$</span>
+            <span class="cmd-text">{{ item.command }}</span>
+          </div>
+
+          <!-- Welcome -->
+          <div *ngIf="item.type === 'welcome'" class="output welcome-msg">
+            <p>{{ item.data }}</p>
+            <p class="sub-welcome">Type 'help' or click buttons above to navigate.</p>
+          </div>
+
+          <!-- Help -->
+          <div *ngIf="item.type === 'help'" class="output help-msg">
+            <p>Available commands:</p>
+            <ul>
+              <li><span class="cmd">about</span> - About me</li>
+              <li><span class="cmd">skills</span> - Tech stack</li>
+              <li><span class="cmd">projects</span> - View projects</li>
+              <li><span class="cmd">contact</span> - Contact links</li>
+              <li><span class="cmd">clear</span> - Clear terminal</li>
+            </ul>
+          </div>
+
+          <!-- About -->
+          <div *ngIf="item.type === 'about'" class="output">
+            <p>{{ item.data }}</p>
+          </div>
+
+          <!-- Skills -->
+          <div *ngIf="item.type === 'skills'" class="output skills-grid">
+            <div *ngFor="let cat of item.data | keyvalue" class="skill-card">
+              <div class="card-header">~ {{ cat.key }}</div>
+              <div class="card-body">
+                <span *ngFor="let skill of cat.value" class="badge">{{ skill }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Projects Grid Layout -->
+          <div *ngIf="item.type === 'projects'" class="output projects-grid">
+            <div *ngFor="let proj of item.data" class="project-card">
+              <h3>{{ proj.name }}</h3>
+              <p>{{ proj.description }}</p>
+              <a [href]="proj.link" target="_blank">{{ proj.link }}</a>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <div *ngIf="item.type === 'contact'" class="output contact-info">
+            <p>Email: <a [href]="'mailto:' + item.data.email">{{ item.data.email }}</a></p>
+            <p>GitHub: <a [href]="item.data.github" target="_blank">{{ item.data.github }}</a></p>
+            <p>Website: <a [href]="item.data.website" target="_blank">{{ item.data.website }}</a></p>
+          </div>
+
+          <!-- Error -->
+          <div *ngIf="item.type === 'error'" class="output error-msg">
+            <p>{{ item.data }}</p>
+          </div>
+        </div>
+
+        <!-- Active Input -->
+        <div class="command-line active-line">
+          <span class="prompt">abuhossain@ab:~$</span>
+          <input
+            type="text"
+            [(ngModel)]="inputCommand"
+            (keyup.enter)="handleCommand()"
+            autofocus
+            spellcheck="false"
+          />
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,325 @@
+:host {
+  display: block;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  background-color: #05080c;
+  color: #00ff66;
+  font-family: 'Fira Code', monospace, sans-serif;
+  box-sizing: border-box;
+}
+
+.layout-wrapper {
+  display: flex;
+  height: 100vh;
+  padding: 20px;
+  gap: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Sidebar Profile */
+.profile-sidebar {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-right: 1px solid #00ff6622;
+  padding-right: 20px;
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: #1f382a;
+  font-size: 12px;
+  letter-spacing: 2px;
+  position: absolute;
+  left: 0;
+  top: 20px;
+}
+
+.profile-card {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.image-wrapper {
+  width: 180px;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #00ff6644;
+  margin: 0 auto 15px auto;
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.1);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-card h2 {
+  color: #ffffff;
+  margin: 10px 0 5px 0;
+  font-size: 20px;
+}
+
+.profile-card .role {
+  color: #8b949e;
+  font-size: 14px;
+}
+
+.quote {
+  color: #00ff66aa;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Main Area */
+.terminal-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.quick-nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.quick-nav button {
+  background: #0d131a;
+  border: 1px solid #00ff6644;
+  color: #00ff66;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.quick-nav button:hover {
+  background: #00ff6622;
+  border-color: #00ff66;
+  box-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
+}
+
+/* Terminal Window */
+.terminal-container {
+  flex: 1;
+  background-color: #080d14;
+  border: 1px solid #00ff6633;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  min-height: 0;
+}
+
+.terminal-header {
+  background-color: #0f1722;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #00ff6622;
+  flex-shrink: 0;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn {
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  min-height: 12px;
+  border-radius: 50%;
+  display: block;
+}
+
+.close { background-color: #ff5f56; }
+.minimize { background-color: #ffbd2e; }
+.maximize { background-color: #27c93f; }
+
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #8b949e;
+  font-size: 13px;
+}
+
+/* Terminal Body Scroll Only */
+.terminal-body {
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+  background: #080d14;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background: #142130;
+  border-radius: 4px;
+  border: 1px solid #00ff6622;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+  background: #00ff6644;
+}
+
+.command-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.prompt {
+  color: #00ff66;
+  font-weight: bold;
+}
+
+.cmd-text {
+  color: #ffffff;
+}
+
+.active-line input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 15px;
+  flex: 1;
+}
+
+.output {
+  margin-bottom: 15px;
+  color: #c9d1d9;
+}
+
+.welcome-msg p {
+  color: #00ff66;
+}
+
+.sub-welcome {
+  color: #8b949e !important;
+  font-size: 13px;
+}
+
+/* Skills Cards */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.skill-card {
+  background: #0b111a;
+  border: 1px solid #00ff6633;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.card-header {
+  color: #00ff66;
+  font-size: 13px;
+  border-bottom: 1px solid #00ff6622;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.card-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.badge {
+  background: #142130;
+  color: #ffffff;
+  padding: 3px 7px;
+  border-radius: 4px;
+  font-size: 12px;
+  border: 1px solid #00ff6622;
+}
+
+/* Projects Side-by-Side Grid Cards */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.project-card {
+  background: #0b111a;
+  border: 1px solid #00ff6633;
+  border-radius: 8px;
+  padding: 15px;
+  transition: all 0.2s ease;
+}
+
+.project-card:hover {
+  border-color: #00ff66;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 255, 102, 0.1);
+}
+
+.project-card h3 {
+  margin: 0 0 8px 0;
+  color: #00ff66;
+  font-size: 16px;
+}
+
+.project-card p {
+  margin: 0 0 12px 0;
+  color: #8b949e;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.project-card a {
+  color: #58a6ff;
+  font-size: 13px;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}
+
+.contact-info a {
+  color: #58a6ff;
+}
+
+.error-msg {
+  color: #ff7b72;
+}

@@ -6,9 +6,10 @@ import { ProjectsComponent } from './components/projects/projects';
 import { ContactComponent } from './components/contact/contact';
 import { CvComponent } from './components/cv/cv';
 import { LoadingComponent } from './components/loading/loading';
+import { TerminalComponent} from './components/terminal/terminal';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/terminal', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'education', component: EducationComponent },
   { path: 'about', component: AboutComponent },
@@ -16,6 +17,7 @@ export const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'cv', component: CvComponent },
   { path: 'loading', component: LoadingComponent },
+  { path: 'terminal', component: TerminalComponent},
 
-  { path: '**', redirectTo: '/home' }
+  { path: '**', redirectTo: '/terminal' }
 ];
