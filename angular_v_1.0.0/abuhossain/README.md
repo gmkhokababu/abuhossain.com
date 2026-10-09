@@ -1,59 +1,93 @@
 # Abuhossain
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.7.
+This project is a personal portfolio website built with Angular 22 and Bootstrap 5. It showcases a developer's profile, education background, projects, contact information, and CV/resume in a clean and responsive layout.
+
+## Project Overview
+
+The application is designed as a single-page portfolio with multiple sections and routes, including:
+
+- Home
+- About
+- Education
+- Projects
+- Contact
+- CV
+
+The content is separated from the UI so that portfolio details can be updated easily through JSON files instead of hardcoding content inside Angular components.
+
+## Where content is added
+
+### Application structure
+
+- `src/app/components/` — UI components for each page section
+  - `home/` — landing page
+  - `about/` — personal introduction
+  - `education/` — academic background
+  - `projects/` — project showcase
+  - `contact/` — contact details
+  - `cv/` — CV/resume page
+  - `loading/` — loading state
+  - `nav/` — navigation bar
+- `src/app/services/data.ts` — service for fetching data from JSON files or remote sources
+- `src/app/model/` — TypeScript models for structured data
+- `public/data/` — JSON files containing the actual portfolio content
+
+### Routing
+
+The routing configuration is defined in `src/app/app.routes.ts` and includes:
+
+- `/home`
+- `/about`
+- `/education`
+- `/projects`
+- `/contact`
+- `/cv`
+- `/loading`
+
+### Data files
+
+Portfolio data is stored in the following files:
+
+- `public/data/contact.json`
+- `public/data/cv.json`
+- `public/data/education.json`
+- `public/data/projects.json`
+
+These files are the main places to update information such as contact details, education history, project lists, and CV content.
 
 ## Development server
 
 To start a local development server, run:
 
 ```bash
-ng serve
+npm install
+npm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Then open your browser and visit:
 
-## Code scaffolding
+```text
+http://localhost:4200/
+```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Build
+
+To build the project for production:
 
 ```bash
-ng generate component component-name
+npm run build
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+The production build artifacts will be stored in the `dist/` directory.
+
+## Testing
+
+To run the unit tests:
 
 ```bash
-ng generate --help
+npm test
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
 ## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+For more information about Angular CLI and project setup, see the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli).
