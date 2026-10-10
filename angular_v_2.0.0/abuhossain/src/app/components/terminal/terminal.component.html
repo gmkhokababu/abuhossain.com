@@ -1,0 +1,99 @@
+<div class="main-content-area">
+  <aside class="identity-pane">
+    <div class="profile-card">
+      <div class="profile-header">
+        <h1>{{ portfolioData?.profile?.name || 'Guest' }}</h1>
+        <p class="profile-title">
+          {{ portfolioData?.profile?.title || 'Portfolio Terminal' }}
+        </p>
+      </div>
+
+      <div class="profile-bio">
+        <p>{{ portfolioData?.profile?.bio || 'Loading profile...' }}</p>
+      </div>
+
+      <div class="profile-meta">
+        <p>📍 {{ portfolioData?.profile?.location || 'Location not available' }}</p>
+      </div>
+
+      <div class="profile-links">
+        <p>Quick Links</p>
+        <ul>
+          <li>
+            <a [href]="portfolioData?.contact?.github || '#'" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a [href]="portfolioData?.contact?.linkedin || '#'" target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a [href]="portfolioData?.contact?.email ? 'mailto:' + portfolioData?.contact?.email : '#'" target="_blank" rel="noreferrer">
+              Email
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <section class="terminal-pane" (click)="focusInput()">
+    <div class="matrix-background" aria-hidden="true">
+      <span
+        *ngFor="let char of matrixChars"
+        class="matrix-char"
+        [style.left.%]="char.left"
+        [style.top.px]="char.top"
+      >
+        {{ char.char }}
+      </span>
+    </div>
+
+    <div class="terminal-output" #outputContainer>
+      <div
+        *ngFor="let item of outputHistory"
+        [ngClass]="{
+          'history-command': item.type === 'command',
+          'history-output': item.type === 'output',
+          'history-error': item.type === 'error',
+          'history-info': item.type === 'info'
+        }"
+      >
+        <div *ngIf="item.type === 'command'">
+          <span class="terminal-prompt">$</span>
+          <span class="command-text">{{ item.line }}</span>
+        </div>
+
+        <div *ngIf="item.type !== 'command'">
+          <ng-container *ngIf="isArray(item.line); else singleLine">
+            <div *ngFor="let line of getLines(item.line) ">
+              {{ line }}
+            </div>
+          </ng-container>
+          <ng-template #singleLine>
+            {{ item.line }}
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <div class="terminal-input">
+      <span class="terminal-prompt">$</span>
+      <input
+        #inputField
+        type="text"
+        [(ngModel)]="currentInput"
+        (keydown)="onKeyDown($event)"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Type 'help'..."
+      />
+    </div>
+  </section>
+</div>
+
+<div class="status-footer">
+  <span class="timestamp">{{ currentDirectory }}</span> | Portfolio Terminal
+</div>

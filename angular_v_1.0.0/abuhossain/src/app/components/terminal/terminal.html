@@ -15,17 +15,17 @@
   <!-- Main Terminal Area -->
   <main class="terminal-main">
     <!-- Top Navigation Buttons -->
-    <nav class="quick-nav">
+    <!-- <nav class="quick-nav">
       <button (click)="runCommand('help')">help</button>
       <button (click)="runCommand('about')">about</button>
       <button (click)="runCommand('projects')">projects</button>
       <button (click)="runCommand('skills')">skills</button>
       <button (click)="runCommand('contact')">contact</button>
       <button (click)="runCommand('clear')">clear</button>
-    </nav>
+    </nav> -->
 
-    <!-- Terminal Box -->
-    <div class="terminal-container">
+    <!-- Terminal Box (Clicking anywhere here focuses input) -->
+    <div class="terminal-container" (click)="focusInput()">
       <div class="terminal-header">
         <div class="buttons">
           <span class="btn close"></span>
@@ -37,15 +37,14 @@
 
       <div class="terminal-body">
         <div *ngFor="let item of history" class="history-item">
-          <div class="command-line" *ngIf="item.command !== 'welcome'">
+          <div class="command-line">
             <span class="prompt">abuhossain@ab:~$</span>
             <span class="cmd-text">{{ item.command }}</span>
           </div>
 
-          <!-- Welcome -->
-          <div *ngIf="item.type === 'welcome'" class="output welcome-msg">
+          <!-- Plain Text Output (For whoami, pwd, date, etc.) -->
+          <div *ngIf="item.type === 'text'" class="output text-msg">
             <p>{{ item.data }}</p>
-            <p class="sub-welcome">Type 'help' or click buttons above to navigate.</p>
           </div>
 
           <!-- Help -->
@@ -56,6 +55,10 @@
               <li><span class="cmd">skills</span> - Tech stack</li>
               <li><span class="cmd">projects</span> - View projects</li>
               <li><span class="cmd">contact</span> - Contact links</li>
+              <li><span class="cmd">whoami</span> - Display current user info</li>
+              <li><span class="cmd">pwd</span> - Print working directory</li>
+              <li><span class="cmd">hostname</span> - Print hostname</li>
+              <li><span class="cmd">date</span> - Display system date and time</li>
               <li><span class="cmd">clear</span> - Clear terminal</li>
             </ul>
           </div>
@@ -68,6 +71,11 @@
           <!-- Skills -->
           <div *ngIf="item.type === 'skills'" class="output skills-grid">
             <div *ngFor="let cat of item.data | keyvalue" class="skill-card">
+              <div class="buttons">
+                <span class="btn close"></span>
+                <span class="btn minimize"></span>
+                <span class="btn maximize"></span>
+              </div>
               <div class="card-header">~ {{ cat.key }}</div>
               <div class="card-body">
                 <span *ngFor="let skill of cat.value" class="badge">{{ skill }}</span>
@@ -75,7 +83,7 @@
             </div>
           </div>
 
-          <!-- Projects Grid Layout -->
+          <!-- Projects -->
           <div *ngIf="item.type === 'projects'" class="output projects-grid">
             <div *ngFor="let proj of item.data" class="project-card">
               <h3>{{ proj.name }}</h3>
@@ -97,16 +105,30 @@
           </div>
         </div>
 
-        <!-- Active Input -->
-        <div class="command-line active-line">
+        <!-- Active Input with Watermark / Placeholder -->
+        <!-- <div class="command-line active-line">
           <span class="prompt">abuhossain@ab:~$</span>
           <input
+            #cmdInput
             type="text"
             [(ngModel)]="inputCommand"
             (keyup.enter)="handleCommand()"
+            placeholder="Type 'help' for commands..."
             autofocus
             spellcheck="false"
           />
+        </div> -->
+
+        <!-- Active Input with Always Active Block Cursor -->
+        <!-- Active Input Line with Dynamic Cursor Position -->
+        <div class="command-line active-line" (click)="focusInput()">
+          <span class="prompt">abuhossain@ab:~$</span>
+          <div class="input-wrapper">
+            <span class="typed-text">{{ inputCommand }}</span>
+            <span class="custom-block-cursor"></span>
+            <input #cmdInput type="text" [(ngModel)]="inputCommand" (keyup.enter)="handleCommand()"
+              [placeholder]="inputCommand ? '' : 'Type \'help\' for commands...'" autofocus spellcheck="false" />
+          </div>
         </div>
       </div>
     </div>

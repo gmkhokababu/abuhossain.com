@@ -1,0 +1,76 @@
+{
+  "profile": {
+    "name": "Anup Pradhan",
+    "title": "Software Engineer & Machine Learning Enthusiast",
+    "bio": "Full-stack developer specializing in backend development, RESTful APIs, and cloud technologies. Passionate about building scalable applications and learning new technologies.",
+    "location": "Bhubaneswar, India",
+    "avatar": "https://avatars.githubusercontent.com/u/174198709?v=4"
+  },
+  "about": {
+    "summary": "I am a software engineer based in Bhubaneswar, India with a passion for building robust backend systems and full-stack applications. I specialize in technologies like Node.js, MongoDB, Express.js, and modern frontend frameworks. I'm constantly learning and exploring new technologies in the field of Machine Learning and DevOps.",
+    "education": [
+      {
+        "degree": "Bachelor of Technology",
+        "school": "KIIT University",
+        "year": "2022",
+        "details": "Computer Science & Engineering"
+      }
+    ],
+    "experience": [
+      {
+        "role": "Software Engineer",
+        "company": "Tech Startup",
+        "duration": "2023 - Present",
+        "description": "Developing scalable backend services and full-stack applications. Working with microservices architecture and cloud deployments."
+      },
+      {
+        "role": "Full Stack Developer Intern",
+        "company": "Previous Company",
+        "duration": "2022 - 2023",
+        "description": "Built web applications using MERN stack. Worked on API development and database optimization."
+      }
+    ]
+  },
+  "skills": {
+    "languages": ["JavaScript", "TypeScript", "Python", "SQL", "HTML", "CSS"],
+    "frontend": ["React", "Angular", "Next.js", "Tailwind CSS"],
+    "backend": ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "Firebase"],
+    "tools": ["Docker", "Git", "AWS", "Vercel", "Linux", "VS Code"]
+  },
+  "projects": [
+    {
+      "id": "1",
+      "title": "Portfolio.sh",
+      "description": "Terminal-style interactive portfolio website built with Next.js and React. Features a unique command-line interface with matrix animations and AI chat integration powered by Google Gemini.",
+      "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Google Gemini API"],
+      "github": "https://github.com/anupPradhan0/portfolio.sh",
+      "live": "https://www.anuppradhan.in"
+    },
+    {
+      "id": "2",
+      "title": "E-Commerce Platform",
+      "description": "Full-stack e-commerce application with payment gateway integration, user authentication, and product management dashboard.",
+      "technologies": ["MERN Stack", "Stripe", "Redux", "MongoDB"],
+      "github": "https://github.com/anupPradhan0/ecommerce"
+    },
+    {
+      "id": "3",
+      "title": "Real-Time Chat Application",
+      "description": "Real-time chat application with WebSocket support, user presence, and message history. Built with Node.js and Socket.io.",
+      "technologies": ["Node.js", "Socket.io", "React", "MongoDB", "Express"]
+    },
+    {
+      "id": "4",
+      "title": "ML Prediction Model",
+      "description": "Machine learning model for predicting house prices using various algorithms. Includes data preprocessing and model evaluation.",
+      "technologies": ["Python", "TensorFlow", "Pandas", "Scikit-learn"]
+    }
+  ],
+  "contact": {
+    "email": "anuppradhan929@gmail.com",
+    "github": "https://github.com/anupPradhan0",
+    "linkedin": "https://www.linkedin.com/in/anuppradhan0",
+    "twitter": "https://x.com/AnupPradhan0",
+    "phone": "+91-XXXXXXXXXX"
+  }
+}

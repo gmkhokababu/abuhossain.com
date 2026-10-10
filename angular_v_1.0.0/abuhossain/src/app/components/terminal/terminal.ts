@@ -1,11 +1,11 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TerminalService } from '../../services/terminal';
+import { TerminalService } from '../../services/TerminalService';
 
 interface CommandOutput {
   command: string;
-  type: 'welcome' | 'about' | 'skills' | 'projects' | 'contact' | 'help' | 'error' | 'clear';
+  type: 'about' | 'skills' | 'projects' | 'contact' | 'help' | 'error' | 'clear' | 'text';
   data?: any;
 }
 
@@ -19,6 +19,8 @@ interface CommandOutput {
 export class TerminalComponent implements OnInit {
   private terminalService = inject(TerminalService);
 
+  @ViewChild('cmdInput') cmdInput!: ElementRef<HTMLInputElement>;
+
   terminalData: any = {};
   inputCommand: string = '';
   history: CommandOutput[] = [];
@@ -27,16 +29,15 @@ export class TerminalComponent implements OnInit {
     this.terminalService.getTerminalData().subscribe({
       next: (data: any) => {
         this.terminalData = data;
-        if (data && data.welcome) {
-          this.history.push({
-            command: 'welcome',
-            type: 'welcome',
-            data: data.welcome
-          });
-        }
       },
       error: (err: any) => console.error('Error loading terminal data:', err)
     });
+  }
+
+  focusInput(): void {
+    if (this.cmdInput) {
+      this.cmdInput.nativeElement.focus();
+    }
   }
 
   runCommand(cmdString: string): void {
@@ -45,8 +46,9 @@ export class TerminalComponent implements OnInit {
   }
 
   handleCommand(): void {
-    const cmd = this.inputCommand.trim().toLowerCase();
-    if (!cmd) return;
+    const rawCmd = this.inputCommand.trim();
+    const cmd = rawCmd.toLowerCase();
+    if (!rawCmd) return;
 
     if (cmd === 'clear') {
       this.history = [];
@@ -54,32 +56,51 @@ export class TerminalComponent implements OnInit {
       return;
     }
 
-    let output: CommandOutput = { command: cmd, type: 'error' };
+    let output: CommandOutput = { command: rawCmd, type: 'error' };
 
     switch (cmd) {
       case 'help':
-        output = { command: cmd, type: 'help' };
+        output = { command: rawCmd, type: 'help' };
         break;
       case 'about':
       case 'cat about.txt':
-        output = { command: cmd, type: 'about', data: this.terminalData.about };
+        output = { command: rawCmd, type: 'about', data: this.terminalData.about };
         break;
       case 'skills':
       case 'ls skills':
-        output = { command: cmd, type: 'skills', data: this.terminalData.skills };
+        output = { command: rawCmd, type: 'skills', data: this.terminalData.skills };
         break;
       case 'projects':
       case 'ls projects':
-        output = { command: cmd, type: 'projects', data: this.terminalData.projects };
+        output = { command: rawCmd, type: 'projects', data: this.terminalData.projects };
         break;
       case 'contact':
-        output = { command: cmd, type: 'contact', data: this.terminalData.contact };
+        output = { command: rawCmd, type: 'contact', data: this.terminalData.contact };
         break;
+
+      /* First Batch of Linux Commands */
+      case 'whoami':
+        output = { command: rawCmd, type: 'text', data: 'abuhossain (Java Backend Developer & Software Engineer)' };
+        break;
+      case 'pwd':
+        output = { command: rawCmd, type: 'text', data: '/home/abuhossain/portfolio' };
+        break;
+      case 'hostname':
+        output = { command: rawCmd, type: 'text', data: 'ab-linux-box' };
+        break;
+      case 'date':
+        output = { command: rawCmd, type: 'text', data: new Date().toString() };
+        break;
+
       default:
-        output = { command: cmd, type: 'error', data: `Command not found: ${cmd}. Type 'help' for available commands.` };
+        output = { command: rawCmd, type: 'error', data: `Command not found: ${rawCmd}. Type 'help' for available commands.` };
     }
 
     this.history.push(output);
     this.inputCommand = '';
+    
+    setTimeout(() => {
+      this.focusInput();
+    }, 0);
   }
 }
